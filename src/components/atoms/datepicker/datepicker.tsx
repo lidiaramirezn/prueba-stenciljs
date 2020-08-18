@@ -306,18 +306,20 @@ export class JanusDatePicker {
   clickMultiYear(e, item) {
     e.stopPropagation();
     this.selectYear = item;
+    this.el.shadowRoot.querySelector('#area').innerHTML = `selectYear ${this.selectYear}`;
     this.createMonths();
   }
 
   clickMonth(e, item) {
     e.stopPropagation();
     this.selectMonth = item.id;
+    this.el.shadowRoot.querySelector('#area').innerHTML = `this.selectMonth ${this.selectMonth}`;
     this.isPanelMonthClosed = true;
 
     switch(this.startview) {
       case 'multi-year' : this.isDatepickerClosed = true;
                           this.value = dayjs(`${this.selectYear}/${this.selectMonth}`).format('MM/YYYY');
-                          this.el.shadowRoot.querySelector('#area').innerHTML = `this.value ${this.value}`;
+                          this.el.shadowRoot.querySelector('#area').innerHTML = `this.value sin dayjs ${this.selectYear}/${this.selectMonth} <br/> this.value ${this.value}`;
                           this.newValue.emit(this.value);
                           break;
       case 'days': this.isPanelDaysClosed = false;
