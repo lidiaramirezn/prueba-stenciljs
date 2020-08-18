@@ -1,0 +1,4 @@
+import { p as patchBrowser, b as bootstrapLazy } from './index-32d0536e.js';
+patchBrowser().then(function (options) {
+    return bootstrapLazy([["date-picker", [[1, "date-picker", { "placeholder": [1], "startview": [1025], "value": [1032], "disable": [1028], "lock": [1028], "maxdatecurrent": [1028], "error": [1028], "selectedDate": [1028, "selected-date"], "nYearsVisible": [32], "currentYear": [32], "currentMonth": [32], "currentDay": [32], "arrayYears": [32], "arrayMonths": [32], "arrayDays": [32], "arrayDaysOfWeek": [32], "isDatepickerClosed": [32], "isPanelMultiYearClosed": [32], "isPanelYearClosed": [32], "isPanelMonthClosed": [32], "isPanelDaysClosed": [32], "selectMonth": [32], "selectYear": [32], "selectDay": [32], "widthComponent": [32] }, [[0, "blur", "handleBlur"], [0, "keydown", "handleKeyDown"]]]]]], options);
+});
