@@ -16,6 +16,16 @@ export namespace Components {
         "startview": string;
         "value": any;
     }
+    interface MDatepicker {
+        "disable": boolean;
+        "error": boolean;
+        "errortext": string;
+        "label": string;
+        "lock": boolean;
+        "placeholder": string;
+        "startview": string;
+        "value": string;
+    }
 }
 declare global {
     interface HTMLDatePickerElement extends Components.DatePicker, HTMLStencilElement {
@@ -24,8 +34,15 @@ declare global {
         prototype: HTMLDatePickerElement;
         new (): HTMLDatePickerElement;
     };
+    interface HTMLMDatepickerElement extends Components.MDatepicker, HTMLStencilElement {
+    }
+    var HTMLMDatepickerElement: {
+        prototype: HTMLMDatepickerElement;
+        new (): HTMLMDatepickerElement;
+    };
     interface HTMLElementTagNameMap {
         "date-picker": HTMLDatePickerElement;
+        "m-datepicker": HTMLMDatepickerElement;
     }
 }
 declare namespace LocalJSX {
@@ -40,8 +57,19 @@ declare namespace LocalJSX {
         "startview"?: string;
         "value"?: any;
     }
+    interface MDatepicker {
+        "disable"?: boolean;
+        "error"?: boolean;
+        "errortext"?: string;
+        "label"?: string;
+        "lock"?: boolean;
+        "placeholder"?: string;
+        "startview"?: string;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "date-picker": DatePicker;
+        "m-datepicker": MDatepicker;
     }
 }
 export { LocalJSX as JSX };
@@ -49,6 +77,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "date-picker": LocalJSX.DatePicker & JSXBase.HTMLAttributes<HTMLDatePickerElement>;
+            "m-datepicker": LocalJSX.MDatepicker & JSXBase.HTMLAttributes<HTMLMDatepickerElement>;
         }
     }
 }

@@ -38,122 +38,125 @@ export class JanusDatePicker {
 
   render() {
     return(
-      <div class={this.getClassMain()} id="janus-datepicker">
-        <input type="text" class="janus-datepicker__input"
-          value={this.value}
-          readOnly
-          placeholder={ this.placeholder }
-          disabled={this.disable || this.lock}
-          onFocus={(e) => this.handleFocus(e)} />
-        <div class="janus-datepicker__wrapper-icon">
-          <p-janus-svg name="CALENDAR" viewbox="0 0 16 18" width="16" height="18"></p-janus-svg>
-        </div>
-        <div class={this.getClassPanel()} tabindex="10">
-          <div class={this.getClassPanelMultiYear()}>
-            <div class="janus-datepicker__panel-header">
-              <div class="content-center">
-                <p-janus-svg name="ARROW_LEFT" viewbox="0 0 13 12" width="13" height="12"
-                  onClick={(ev: any) => this.resetPanelYearsLeft(ev)}>
-                </p-janus-svg>
-              </div>
-              <div>
-                {this.arrayYears[0]} - {this.arrayYears[this.arrayYears.length - 1]}
-              </div>
-              <div class="content-center">
-                <p-janus-svg name="ARROW_RIGTH" viewbox="0 0 13 12" width="13" height="12"
-                  onClick={(ev: any) => this.resetPanelYearsRigth(ev)}>
-                </p-janus-svg>
-              </div>
-            </div>
-            <div class="janus-datepicker__panel-body">
-              { this.arrayYears.map((item) =>
-                  <div class="janus-datepicker__item-wrapper">
-                    {
-                      this.yearAfterNow(item) ?
-                      <a class="janus-datepicker__item janus-datepicker__item--disable">{item}</a> :
-                      this.selectYear == item && this.selectedDate ?
-                      <a class="janus-datepicker__item janus-datepicker__item--active" onClick= { e => this.clickMultiYear(e, item)}>{item}</a> :
-                      <a class="janus-datepicker__item" onClick= { e => this.clickMultiYear(e, item)}>{item}</a>
-                    }
-                  </div>)
-              }
-            </div>
+      <div>
+        <div class={this.getClassMain()} id="janus-datepicker">
+          <input type="text" class="janus-datepicker__input"
+            value={this.value}
+            readOnly
+            placeholder={ this.placeholder }
+            disabled={this.disable || this.lock}
+            onFocus={(e) => this.handleFocus(e)} />
+          <div class="janus-datepicker__wrapper-icon">
+            <p-janus-svg name="CALENDAR" viewbox="0 0 16 18" width="16" height="18"></p-janus-svg>
           </div>
-          <div class={this.getClassPanelMonths()}>
-            <div class="janus-datepicker__panel-header--center">
-              <div class="janus-datepicker__button" onClick={(ev: any) => this.createMultiYear(ev)}>
-                {this.selectYear}
+          <div class={this.getClassPanel()} tabindex="10">
+            <div class={this.getClassPanelMultiYear()}>
+              <div class="janus-datepicker__panel-header">
+                <div class="content-center">
+                  <p-janus-svg name="ARROW_LEFT" viewbox="0 0 13 12" width="13" height="12"
+                    onClick={(ev: any) => this.resetPanelYearsLeft(ev)}>
+                  </p-janus-svg>
+                </div>
+                <div>
+                  {this.arrayYears[0]} - {this.arrayYears[this.arrayYears.length - 1]}
+                </div>
+                <div class="content-center">
+                  <p-janus-svg name="ARROW_RIGTH" viewbox="0 0 13 12" width="13" height="12"
+                    onClick={(ev: any) => this.resetPanelYearsRigth(ev)}>
+                  </p-janus-svg>
+                </div>
               </div>
-            </div>
-            <div class="janus-datepicker__panel-body">
-              { this.arrayMonths.map((item) =>
-                  <div class="janus-datepicker__item-wrapper">
-                    {
-                      this.monthAfterNow(item.id) ?
-                      <a class="janus-datepicker__item janus-datepicker__item--disable">{item.description}</a> :
-                      this.selectMonth == item.value && this.selectedDate ?
-                      <a class="janus-datepicker__item janus-datepicker__item--active" onClick= { e => this.clickMonth(e, item)}>{item.description}</a> :
-                      <a class="janus-datepicker__item" onClick= { e => this.clickMonth(e, item)}>{item.description}</a>
-                    }
-                  </div>)
-              }
-            </div>
-          </div>
-          <div class={this.getClassPanelDays()}>
-            <div class="janus-datepicker__panel-header">
-              <div class="content-center">
-                <p-janus-svg name="ARROW_LEFT" viewbox="0 0 13 12" width="13" height="12"
-                  onClick={(ev: any) => this.resetPanelDaysLeft(ev)}>
-                </p-janus-svg>
-              </div>
-              <div>
-                <a class="janus-datepicker__button" onClick={() => this.createMonths()}>{ this.arrayMonths[this.selectMonth-1].description  }</a> -
-                <a class="janus-datepicker__button" onClick={(ev: any) => this.createMultiYear(ev)}>{ this.selectYear }</a>
-              </div>
-              <div class="content-center">
-                 { this.selectMonth == this.currentMonth && this.selectYear == this.currentYear ?
-                    <p-janus-svg name="ARROW_RIGTH" viewbox="0 0 13 12" width="13" height="12">
-                    </p-janus-svg> :
-                    <p-janus-svg name="ARROW_RIGTH" viewbox="0 0 13 12" width="13" height="12"
-                      onClick={(ev: any) => this.resetPanelDaysRigth(ev)}>
-                    </p-janus-svg>
+              <div class="janus-datepicker__panel-body">
+                { this.arrayYears.map((item) =>
+                    <div class="janus-datepicker__item-wrapper">
+                      {
+                        this.yearAfterNow(item) ?
+                        <a class="janus-datepicker__item janus-datepicker__item--disable">{item}</a> :
+                        this.selectYear == item && this.selectedDate ?
+                        <a class="janus-datepicker__item janus-datepicker__item--active" onClick= { e => this.clickMultiYear(e, item)}>{item}</a> :
+                        <a class="janus-datepicker__item" onClick= { e => this.clickMultiYear(e, item)}>{item}</a>
+                      }
+                    </div>)
                 }
               </div>
             </div>
-            <div class="janus-datepicker__panel-header-week">
-              {
-                this.arrayDaysOfWeek.map((item) =>
-                <div>
-                  {item.description}
-                </div>)
-              }
+            <div class={this.getClassPanelMonths()}>
+              <div class="janus-datepicker__panel-header--center">
+                <div class="janus-datepicker__button" onClick={(ev: any) => this.createMultiYear(ev)}>
+                  {this.selectYear}
+                </div>
+              </div>
+              <div class="janus-datepicker__panel-body">
+                { this.arrayMonths.map((item) =>
+                    <div class="janus-datepicker__item-wrapper">
+                      {
+                        this.monthAfterNow(item.id) ?
+                        <a class="janus-datepicker__item janus-datepicker__item--disable">{item.description}</a> :
+                        this.selectMonth == item.value && this.selectedDate ?
+                        <a class="janus-datepicker__item janus-datepicker__item--active" onClick= { e => this.clickMonth(e, item)}>{item.description}</a> :
+                        <a class="janus-datepicker__item" onClick= { e => this.clickMonth(e, item)}>{item.description}</a>
+                      }
+                    </div>)
+                }
+              </div>
             </div>
-            <div class="janus-datepicker__panel-body-days">
-              {
-                this.arrayDays.map((item) =>
-                  <div class="janus-datepicker__item-day-wrapper">
-                     {
-                      this.dayAfterNow(item) ?
-                      <a class="janus-datepicker__item-day janus-datepicker__item-day--disable">{item}</a> :
-                      this.value && this.selectDay == item && this.selectedDate ?
-                      <a class="janus-datepicker__item-day janus-datepicker__item-day--active" onClick= { e => this.clickDay(e, item)}>{item}</a> :
-                      <a class="janus-datepicker__item-day" onClick= { e => this.clickDay(e, item)}>{item}</a>
-                    }
-                    {/* {
-                      this.maxdatecurrent &&
-                      this.currentDay < item && (this.selectMonth === this.currentMonth || this.selectMonth > this.currentMonth) ?
-                      <a class="janus-datepicker__item-day janus-datepicker__item-day--disable" >{item}</a> :
-                      <a class="janus-datepicker__item-day" onClick= { e => this.clickDay(e, item)}>{item}</a>
-                    } */}
-                    {/* { this.selectDay === item ?
-                      <a class="janus-datepicker__item-day janus-datepicker__item-day--active" onClick= { e => this.clickDay(e, item)}>{item}</a> :
-                      <a class="janus-datepicker__item-day" onClick= { e => this.clickDay(e, item)}>{item}</a>
-                    } */}
+            <div class={this.getClassPanelDays()}>
+              <div class="janus-datepicker__panel-header">
+                <div class="content-center">
+                  <p-janus-svg name="ARROW_LEFT" viewbox="0 0 13 12" width="13" height="12"
+                    onClick={(ev: any) => this.resetPanelDaysLeft(ev)}>
+                  </p-janus-svg>
+                </div>
+                <div>
+                  <a class="janus-datepicker__button" onClick={() => this.createMonths()}>{ this.arrayMonths[this.selectMonth-1].description  }</a> -
+                  <a class="janus-datepicker__button" onClick={(ev: any) => this.createMultiYear(ev)}>{ this.selectYear }</a>
+                </div>
+                <div class="content-center">
+                  { this.selectMonth == this.currentMonth && this.selectYear == this.currentYear ?
+                      <p-janus-svg name="ARROW_RIGTH" viewbox="0 0 13 12" width="13" height="12">
+                      </p-janus-svg> :
+                      <p-janus-svg name="ARROW_RIGTH" viewbox="0 0 13 12" width="13" height="12"
+                        onClick={(ev: any) => this.resetPanelDaysRigth(ev)}>
+                      </p-janus-svg>
+                  }
+                </div>
+              </div>
+              <div class="janus-datepicker__panel-header-week">
+                {
+                  this.arrayDaysOfWeek.map((item) =>
+                  <div>
+                    {item.description}
                   </div>)
-              }
+                }
+              </div>
+              <div class="janus-datepicker__panel-body-days">
+                {
+                  this.arrayDays.map((item) =>
+                    <div class="janus-datepicker__item-day-wrapper">
+                      {
+                        this.dayAfterNow(item) ?
+                        <a class="janus-datepicker__item-day janus-datepicker__item-day--disable">{item}</a> :
+                        this.value && this.selectDay == item && this.selectedDate ?
+                        <a class="janus-datepicker__item-day janus-datepicker__item-day--active" onClick= { e => this.clickDay(e, item)}>{item}</a> :
+                        <a class="janus-datepicker__item-day" onClick= { e => this.clickDay(e, item)}>{item}</a>
+                      }
+                      {/* {
+                        this.maxdatecurrent &&
+                        this.currentDay < item && (this.selectMonth === this.currentMonth || this.selectMonth > this.currentMonth) ?
+                        <a class="janus-datepicker__item-day janus-datepicker__item-day--disable" >{item}</a> :
+                        <a class="janus-datepicker__item-day" onClick= { e => this.clickDay(e, item)}>{item}</a>
+                      } */}
+                      {/* { this.selectDay === item ?
+                        <a class="janus-datepicker__item-day janus-datepicker__item-day--active" onClick= { e => this.clickDay(e, item)}>{item}</a> :
+                        <a class="janus-datepicker__item-day" onClick= { e => this.clickDay(e, item)}>{item}</a>
+                      } */}
+                    </div>)
+                }
+              </div>
             </div>
           </div>
         </div>
+        <div id="area" class="area">area</div>
       </div>
     )
   }
@@ -264,7 +267,7 @@ export class JanusDatePicker {
       this.arrayYears.push(year);
       year++;
     }
-    document.write('createMultiYear '+year+' this.arrayYears '+this.arrayYears)
+    this.el.shadowRoot.querySelector('#area').innerHTML = `createMultiYear ${year} arrayYears ${this.arrayYears}`;
   }
 
   private createMonths() {
@@ -314,8 +317,8 @@ export class JanusDatePicker {
     switch(this.startview) {
       case 'multi-year' : this.isDatepickerClosed = true;
                           this.value = dayjs(`${this.selectYear}/${this.selectMonth}`).format('MM/YYYY');
+                          this.el.shadowRoot.querySelector('#area').innerHTML = `this.value ${this.value}`;
                           this.newValue.emit(this.value);
-                          document.write('clickMonth en multi-year '+this.value)
                           break;
       case 'days': this.isPanelDaysClosed = false;
                    break;
