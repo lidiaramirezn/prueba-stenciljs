@@ -1,0 +1,169 @@
+.janus-datepicker {
+  border: 1px solid #EDEEEE;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  height: 48px;
+  position: relative;
+}
+.janus-datepicker:hover {
+  border-color: gray;
+}
+.janus-datepicker--error {
+  border: 1px solid red;
+}
+.janus-datepicker__input {
+  line-height: 20px;
+  width: calc(100% - 40px);
+  padding: 13px 20px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+.janus-datepicker__input:disabled {
+  background-color: gray;
+  border: 1px solid gray;
+  color: darkgray;
+  cursor: auto;
+}
+.janus-datepicker__input:disabled:hover {
+  border-color: gray;
+}
+.janus-datepicker__wrapper-icon {
+  align-items: center;
+  background: #EDEEEE;
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.janus-datepicker__panel {
+  position: absolute;
+  z-index: 10;
+  top: 46px;
+  width: 100%;
+  height: 270px;
+  background-color: #ffffff;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
+}
+.janus-datepicker__panel--hidden {
+  display: none;
+}
+.janus-datepicker__panel-content {
+  height: 100%;
+}
+.janus-datepicker__panel-header, .janus-datepicker__panel-header--center {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.janus-datepicker__panel-header {
+  justify-content: space-around;
+}
+.janus-datepicker__panel-header--center {
+  justify-content: center;
+}
+.janus-datepicker__panel-body, .janus-datepicker__panel-body-days {
+  display: flex;
+  flex-wrap: wrap;
+}
+.janus-datepicker__panel-body {
+  height: calc(100% - 50px);
+}
+.janus-datepicker__panel-body-days {
+  height: calc(100% - 70px);
+}
+.janus-datepicker__item-wrapper {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.janus-datepicker__item-day-wrapper {
+  width: 14.2857142857%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.janus-datepicker__panel-header-week {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+}
+.janus-datepicker__panel-header-week > div {
+  width: 14.2857142857%;
+  text-align: center;
+}
+.janus-datepicker__item {
+  padding: 8px 14px;
+  border-radius: 10px;
+}
+.janus-datepicker__item:hover {
+  color: #ffffff;
+  background-color: #335CB4;
+}
+.janus-datepicker__item--disable {
+  color: gray;
+  cursor: default;
+}
+.janus-datepicker__item--disable:hover {
+  color: gray;
+  background-color: initial;
+}
+.janus-datepicker__item--active {
+  color: #ffffff;
+  background-color: #335CB4;
+}
+.janus-datepicker__item-day {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.janus-datepicker__item-day:hover {
+  color: darkslategray;
+  background-color: lightgray;
+}
+.janus-datepicker__item-day--active {
+  color: #ffffff;
+  background-color: #335CB4;
+}
+.janus-datepicker__item-day--disable {
+  border-radius: none;
+  color: gray;
+  cursor: default;
+}
+.janus-datepicker__item-day--disable:hover {
+  color: gray;
+  background-color: white;
+}
+.janus-datepicker__button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.janus-datepicker__button:hover {
+  border-radius: 4px;
+  background-color: gray;
+}
+
+.area {
+  margin-top: 300px;
+  background-color: darkseagreen;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

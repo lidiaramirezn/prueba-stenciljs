@@ -26,6 +26,19 @@
 | `newValue` |             | `CustomEvent<any>` |
 
 
+## Dependencies
+
+### Used by
+
+ - [m-datepicker](../../molecula/m-datepicker)
+
+### Graph
+```mermaid
+graph TD;
+  m-datepicker --> date-picker
+  style date-picker fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

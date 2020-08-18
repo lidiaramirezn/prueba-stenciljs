@@ -1,0 +1,13 @@
+{
+  "entries": [
+    "./components/atoms/datepicker/datepicker.js",
+    "./components/molecula/m-datepicker/m-datepicker.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.12.2",
+    "typescriptVersion": "3.8.3"
+  },
+  "collections": [],
+  "bundles": []
+}

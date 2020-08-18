@@ -1,7 +1,6 @@
-import { r as registerInstance, h } from './index-4e3521db.js';
-
-const JanusInputGroupDatepicker = class {
-    constructor(hostRef) {
+import { r as registerInstance, h } from './index-32d0536e.js';
+var JanusInputGroupDatepicker = /** @class */ (function () {
+    function JanusInputGroupDatepicker(hostRef) {
         registerInstance(this, hostRef);
         this.placeholder = '';
         this.disable = false;
@@ -10,9 +9,9 @@ const JanusInputGroupDatepicker = class {
         this.errortext = '';
         this.startview = 'days';
     }
-    render() {
+    JanusInputGroupDatepicker.prototype.render = function () {
         return (h("div", { class: "janus-inputgroup-datepicker" }, h("date-picker", { startview: this.startview, value: this.value, disable: this.disable, lock: this.lock, error: this.error }), h("div", { id: "data" })));
-    }
-};
-
+    };
+    return JanusInputGroupDatepicker;
+}());
 export { JanusInputGroupDatepicker as m_datepicker };
