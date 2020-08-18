@@ -239,8 +239,8 @@ var JanusDatePicker = /** @class */ (function () {
         switch (this.startview) {
             case 'multi-year':
                 this.isDatepickerClosed = true;
-                this.value = dayjs_min(this.selectYear + "/" + this.selectMonth).format('MM/YYYY');
-                this.el.shadowRoot.querySelector('#area').innerHTML = "this.value sin dayjs " + this.selectYear + "/" + this.selectMonth + " <br/> this.value " + this.value;
+                this.value = dayjs_min(this.selectYear + "-" + this.selectMonth).format('MM/YYYY');
+                this.el.shadowRoot.querySelector('#area').innerHTML = "this.value sin dayjs " + this.selectYear + "-" + this.selectMonth + " <br/> this.value " + this.value;
                 this.newValue.emit(this.value);
                 break;
             case 'days':
