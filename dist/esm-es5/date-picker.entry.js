@@ -190,7 +190,7 @@ var JanusDatePicker = /** @class */ (function () {
             this.arrayYears.push(year);
             year++;
         }
-        console.log('createMultiYear', year, 'this.arrayYears', this.arrayYears);
+        document.write('createMultiYear ' + year + ' this.arrayYears ' + this.arrayYears);
     };
     JanusDatePicker.prototype.createMonths = function () {
         this.isPanelDaysClosed = true;
@@ -239,7 +239,7 @@ var JanusDatePicker = /** @class */ (function () {
                 this.isDatepickerClosed = true;
                 this.value = dayjs_min(this.selectYear + "/" + this.selectMonth).format('MM/YYYY');
                 this.newValue.emit(this.value);
-                console.log('clickMonth en multi-year', this.value);
+                document.write('clickMonth en multi-year ' + this.value);
                 break;
             case 'days':
                 this.isPanelDaysClosed = false;

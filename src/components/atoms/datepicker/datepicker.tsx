@@ -264,7 +264,7 @@ export class JanusDatePicker {
       this.arrayYears.push(year);
       year++;
     }
-    console.log('createMultiYear', year, 'this.arrayYears', this.arrayYears)
+    document.write('createMultiYear '+year+' this.arrayYears '+this.arrayYears)
   }
 
   private createMonths() {
@@ -315,7 +315,7 @@ export class JanusDatePicker {
       case 'multi-year' : this.isDatepickerClosed = true;
                           this.value = dayjs(`${this.selectYear}/${this.selectMonth}`).format('MM/YYYY');
                           this.newValue.emit(this.value);
-                          console.log('clickMonth en multi-year', this.value)
+                          document.write('clickMonth en multi-year '+this.value)
                           break;
       case 'days': this.isPanelDaysClosed = false;
                    break;
